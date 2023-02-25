@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+package proto;
+
+//import "google/protobuf/empty.proto";
+
+option go_package = "client/gen/proto";
+
+//unary
+message User {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+  repeated string roles = 4;
+}
+message SignupRequest {
+  User user = 1;
+}
+
+message SignupResponse {
+  string result = 1;
+}
+//end of unary proto
+
+
+//proto for server streaming
+message GetPostsRequest {
+  fixed64 user_id = 1;
+}
+message GetPostsResponse {
+  repeated Post posts = 1;
+}
+
+message Post {
+  string title = 1;
+  string author = 2;
+  string body = 3;
+}
+//end server streaming
+
+//client streaming
+message CreatePostRequest {
+  repeated Post posts = 1;
+}
+
+message CreatePostResponse {
+  string result = 1;
+}
+//end client streaming
+
+//bidirectional streaming
+message GreetEveryoneRequest {
+  string first_name = 1;
+}
+
+message GreetEveryoneResponse {
+  string result = 1;
+}
+//end bidirectional streaming
+
+//metadata
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string message = 1;
+}
+//end
+//jwt
+message JwtRequest {
+  string name = 1;
+}
+message JwtResponse {
+  string result = 1;
+}
+//end
+
+service UserService {
+  //rpc Signup(SignupRequest) returns (google.protobuf.Empty);
+  //unary
+  rpc Signup(SignupRequest) returns (SignupResponse);
+
+  //server streaming
+  rpc GetPosts(GetPostsRequest) returns (stream GetPostsResponse);
+
+  //client streaming
+  rpc CreatePost(stream CreatePostRequest) returns (CreatePostResponse);
+
+  //bidirectional streaming
+  rpc GreetEveryone(stream GreetEveryoneRequest) returns (stream GreetEveryoneResponse);
+
+  //rpc for metadata
+  rpc Hello (HelloRequest) returns (HelloResponse);
+
+  //rpc for jwt
+  rpc Jwt (JwtRequest) returns (JwtResponse);
+}

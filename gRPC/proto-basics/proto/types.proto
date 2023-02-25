@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package proto;
+
+//The go_package option should contain the full import path of the Go package
+//which contains the generated code for the .proto file
+option go_package = 'proto-basics/proto';
+
+//simple message
+//PascalCase, such as "BlogRequest"
+message BlogRequest {
+//  reserved 2, 15, 9 to 11;  // uncomment this line to reserve the field numbers
+//  reserved "foo";
+  int64 blog_id = 1;            //  lower_snake_case, such as "blog_id"
+  string foo = 20;
+  string title = 2;
+  string content = 3;
+}
+
+
+message SearchResponse {
+  //nested message
+  message Result {
+    string url = 1;
+    string title = 2;
+  }
+  // using message as field
+  repeated Result results = 1; // repeated is slice in go
+}
+//reuse Result message type outside SearchResponse message type
+message SearchResult {
+  SearchResponse.Result result = 1; //accessing a field from SearchResponse
+}
+
+enum Category {
+  CATEGORY_UNSPECIFIED = 0; // zero value name should be suffixed with "_UNSPECIFIED".
+  CATEGORY_CLOTHING = 1; //should be prefixed with "CATEGORY_ // should be UPPER_SNAKE_CASE
+  CATEGORY_ELECTRONICS = 2;
+  CATEGORY_BOOKS = 3;
+  CATEGORY_HOME_AND_KITCHEN = 4;
+  CATEGORY_SPORTS_AND_OUTDOORS = 5;
+  CATEGORY_BEAUTY_AND_PERSONAL_CARE = 6;
+  CATEGORY_TOYS_AND_GAMES = 7;
+}
+message Product {
+  string product_id = 1;
+  Category category = 2;
+}
+
+message Restaurant {
+  // Define a oneof field
+  oneof order {
+    string breakfast = 1;
+    string lunch = 2;
+    string  dinner = 3;
+  }
+}
+
+
+
+message ProductDetails  {
+  int32 id = 1;
+  string name = 2;
+  // string(key) = currency codes,  float(value) = the product's price in that currency.
+  map<string, double> prices_by_currency = 3; // Map fields cannot be repeated.
+
+  //Wire format ordering and map iteration ordering of map values are undefined,
+  //so you cannot rely on your map items being in a particular order.
+}
+
+
+//protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative types.proto

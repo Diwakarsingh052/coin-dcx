@@ -1,0 +1,13 @@
+openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:2048
+openssl rsa -in private.pem -pubout -out pubkey.pem
+
+CREATE TABLE users (
+  id SERIAL,
+  name TEXT,
+  email TEXT UNIQUE,
+  roles TEXT[],
+  password_hash VARCHAR(255),
+  date_created TIMESTAMP,
+  date_updated TIMESTAMP
+
+);
