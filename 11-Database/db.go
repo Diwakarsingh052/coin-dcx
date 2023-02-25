@@ -13,8 +13,8 @@ var db *sql.DB //nil
 
 const (
 	host     = "localhost"
-	port     = 5433
-	user     = "postgres"
+	port     = 5432
+	user     = "diwakar"
 	password = "root"
 	dbname   = "users"
 )
@@ -53,7 +53,8 @@ func Insert() {
 	sqlStatement := `INSERT INTO users (age, email, first_name,last_name)
 					VALUES ($1, $2, $3, $4)`
 	var name = "abc"
-	res, err := db.Exec(sqlStatement, 32, "abc@email.com", name, "arora")
+	//exec query //
+	res, err := db.Exec(sqlStatement, 32, "abc@email.com", name, "abc")
 	//db.ExecContext()
 	if err != nil {
 		log.Println(err)
@@ -75,6 +76,8 @@ func Insert2(ctx context.Context) {
 		id    int
 		email string
 	)
+
+	//exec the query and return one row back
 	err := db.QueryRowContext(ctx, sqlStatement, 32, "efg@email.com", name, "arora").Scan(&id, &email)
 	//db.QueryRowContext()
 	if err != nil {
@@ -152,6 +155,7 @@ func querySingleRecords(ctx context.Context) {
 
 func QueryMultipleRecords(ctx context.Context) {
 
+	//exec the query // we expect the multiple rows back
 	rows, err := db.QueryContext(ctx, "Select id, email FROM users LIMIT $1", 4)
 
 	if err != nil {

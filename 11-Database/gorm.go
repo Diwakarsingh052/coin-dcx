@@ -30,9 +30,11 @@ func main() {
 		},
 	)
 
-	dsn := "host=localhost user=postgres password=root dbname=student port=5433 sslmode=disable"
+	dsn := "host=localhost user=diwakar password=root dbname=postgres port=5432 sslmode=disable"
 	gDb, err = gorm.Open(postgres.Open(dsn), &gorm.Config{Logger: newLogger})
-
+	if err != nil {
+		panic(err)
+	}
 	conn, err := gDb.DB()
 
 	if err != nil {
@@ -42,21 +44,21 @@ func main() {
 	defer conn.Close()
 
 	fmt.Println("connected")
-	//CreateTable()
-	//InsertData()
-	//SearchAll()
-	//SearchWhere()
-	Delete()
+	CreateTable()
+	InsertData()
+	SearchAll()
+	SearchWhere()
+	//Delete()
 }
 
 func CreateTable() {
 
-	err := gDb.Migrator().DropTable(&student{})
-	if err != nil {
-		log.Fatalln(err)
-	}
+	//err := gDb.Migrator().DropTable(&student{})
+	//if err != nil {
+	//	log.Fatalln(err)
+	//}
 
-	err = gDb.Migrator().AutoMigrate(&student{})
+	err := gDb.Migrator().AutoMigrate(&student{})
 	if err != nil {
 		log.Fatalln(err)
 	}

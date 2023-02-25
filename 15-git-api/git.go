@@ -11,6 +11,8 @@ import (
 	"time"
 )
 
+// TODO: Create a repo on Github using personal access token
+
 type repoRequest struct {
 	RepoName        string `json:"name"` // make sure field names matches to the json fields accepted by client
 	RepoDescription string `json:"description"`
