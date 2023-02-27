@@ -7,23 +7,23 @@ import (
 	"fmt"
 )
 
-type Postgres struct {
+type Conn struct {
 	db *sql.DB
 }
 
-func NewPostgres(db *sql.DB) *Postgres {
-	return &Postgres{db: db}
+func NewConn(db *sql.DB) *Conn {
+	return &Conn{db: db}
 }
 
-func (p *Postgres) Create(ctx context.Context, usr data.User) error {
+func (p *Conn) Create(ctx context.Context, usr data.User) error {
 	fmt.Println("adding to postgres", usr)
 	return nil
 }
-func (p *Postgres) Update(ctx context.Context, usr data.User) error {
+func (p *Conn) Update(ctx context.Context, usr data.User) error {
 	fmt.Println("updating in postgres", usr)
 	return nil
 }
-func (p *Postgres) Delete(ctx context.Context, usr data.User) error {
+func (p *Conn) Delete(ctx context.Context, usr data.User) error {
 	fmt.Println("deleting in postgres", usr)
 	return nil
 }
