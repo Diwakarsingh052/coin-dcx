@@ -1,9 +1,8 @@
 package main
 
-import "coin-dcx/database"
-
 func main() {
-	database.Config{db: ""}
-	database.AccessToDb()
+
+	//create conn to the db
+	//access the method AccessToDb
 
 }
