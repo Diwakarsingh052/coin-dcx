@@ -32,8 +32,12 @@ func main() {
 
 	_, _ = h, robot
 
-	var r Runner = robot
+	CanWalk(h)
+	CanWalk(robot)
 
+}
+
+func CanWalk(r Runner) {
 	//type assertion
 	i, ok := r.(Human) // check whether a type exists in the interface or not // if it is there than that struct would be returned
 
@@ -43,5 +47,4 @@ func main() {
 	}
 	fmt.Println("calling the walk method")
 	i.Walk()
-
 }
