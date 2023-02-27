@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-// Service struct inject dependency in user package
+// Service struct inject dependency in data package
 type Service struct {
 	db string
 	l  *log.Logger

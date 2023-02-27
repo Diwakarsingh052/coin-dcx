@@ -5,7 +5,7 @@ type ErrorResponse struct {
 	Error string `json:"error"`
 }
 
-// Error struct is used by user of our app to generate error messages
+// Error struct is used by data of our app to generate error messages
 // Later on from this struct we would fetch the error message and send it as response back to the client
 type Error struct {
 	Err    error

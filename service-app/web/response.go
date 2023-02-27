@@ -29,10 +29,10 @@ func Respond(ctx context.Context, w http.ResponseWriter, data any, statusCode in
 func RespondError(ctx context.Context, w http.ResponseWriter, err error) error {
 
 	var webErr *Error
-	//if user used it to create error message or not
+	//if data used it to create error message or not
 	ok := errors.As(err, &webErr)
 
-	// if webErr is being used to construct an Error then I will send the content of it to the end user
+	// if webErr is being used to construct an Error then I will send the content of it to the end data
 	if ok {
 		er := ErrorResponse{Error: webErr.Err.Error()}
 		err := Respond(ctx, w, er, webErr.Status)

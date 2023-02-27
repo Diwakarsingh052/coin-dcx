@@ -34,7 +34,7 @@ func (m *Mid) Authenticate(next web.HandlerFunc) web.HandlerFunc {
 
 		// putting the token in the context so we can see the values in the claims struct in the request life cycle //
 		// specifically we will look for the subject field
-		//as it stores unique user id which will helpful to identify for whom this token was generated
+		//as it stores unique data id which will helpful to identify for whom this token was generated
 		ctx = context.WithValue(ctx, auth.Key, claims)
 
 		return next(ctx, w, r)

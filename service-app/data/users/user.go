@@ -49,7 +49,7 @@ func (s *Service) Create(ctx context.Context, nu NewUser, now time.Time) (User, 
 	row := s.db.QueryRowContext(ctx, q, u.Name, u.Email, u.PasswordHash, u.Roles, u.DateCreated, u.DateUpdated)
 	err = row.Scan(&id)
 	if err != nil {
-		return User{}, fmt.Errorf("inserting user %w", err)
+		return User{}, fmt.Errorf("inserting data %w", err)
 	}
 
 	u.ID = strconv.Itoa(id)
@@ -59,7 +59,7 @@ func (s *Service) Create(ctx context.Context, nu NewUser, now time.Time) (User, 
 
 func (s *Service) Authenticate(ctx context.Context, email, password string, now time.Time) (auth.Claims, error) {
 
-	//this query is used to check whether user exist in the db or not
+	//this query is used to check whether data exist in the db or not
 	const q = `SELECT id,name,email,roles,password_hash FROM users WHERE email = $1`
 	var u User
 	row := s.db.QueryRowContext(ctx, q, email)

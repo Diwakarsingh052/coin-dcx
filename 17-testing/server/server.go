@@ -15,7 +15,7 @@ func main() {
 
 func doubleHandler(w http.ResponseWriter, r *http.Request) {
 
-	text := r.URL.Query().Get("v") // trying to fetch value from the user
+	text := r.URL.Query().Get("v") // trying to fetch value from the data
 	if text == "" {
 		http.Error(w, "missing value", http.StatusBadRequest)
 		return // don't forget the return

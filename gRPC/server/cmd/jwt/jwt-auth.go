@@ -39,7 +39,7 @@ type server struct {
 
 func (s *server) Jwt(ctx context.Context, req *pb.JwtRequest) (*pb.JwtResponse, error) {
 	name := req.GetName()
-	fmt.Println(ctx.Value("user"))
+	fmt.Println(ctx.Value("data"))
 	response := &pb.JwtResponse{Result: "Hello, " + name}
 	return response, nil
 }
@@ -92,11 +92,11 @@ func jwtAuthFunc(ctx context.Context) (context.Context, error) {
 		return nil, status.Error(codes.Unauthenticated, "token invalid")
 	}
 
-	//user have valid token
-	// Add the user info to the context // it will tell us who is logged-in
-	// In this example, we're adding the username at the "user" key
+	//data have valid token
+	// Add the data info to the context // it will tell us who is logged-in
+	// In this example, we're adding the username at the "data" key
 	username := claims.Subject
-	return context.WithValue(ctx, "user", username), nil
+	return context.WithValue(ctx, "data", username), nil
 }
 
 func ValidateToken(tokenStr string, pubKey *rsa.PublicKey) (jwt.RegisteredClaims, error) {

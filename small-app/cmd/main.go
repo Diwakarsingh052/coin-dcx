@@ -5,7 +5,7 @@ import (
 	"small-app/handlers"
 )
 
-// /user?id=2
+// /data?id=2
 
 func main() {
 

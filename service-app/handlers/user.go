@@ -30,10 +30,10 @@ func (h *handler) SignUp(ctx context.Context, w http.ResponseWriter, r *http.Req
 		return fmt.Errorf("%w", err)
 	}
 
-	//creating the user in the db
+	//creating the data in the db
 	usr, err := h.Create(ctx, nu, v.Now)
 	if err != nil {
-		return fmt.Errorf("user signup problem: %w", err)
+		return fmt.Errorf("data signup problem: %w", err)
 	}
 
 	return web.Respond(ctx, w, usr, http.StatusOK)

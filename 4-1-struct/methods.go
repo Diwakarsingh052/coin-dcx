@@ -10,7 +10,7 @@ type user struct {
 func (u1 user) show() { // func(receiver)methodName(Args)returnTypes {}
 	fmt.Println(u1.name)
 }
-func (u1 user) update(name string) { // value from the main func of the user var would be copied here in the receiver
+func (u1 user) update(name string) { // value from the main func of the data var would be copied here in the receiver
 	u1.name = name
 
 }

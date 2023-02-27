@@ -7,7 +7,7 @@ type user struct {
 }
 
 func main() {
-	//u := user{name: "abc"}
+	//u := data{name: "abc"}
 	CheckType(true)
 }
 
@@ -18,7 +18,7 @@ func CheckType(i any) {
 	case string:
 		fmt.Println("it is a string", v)
 	case user:
-		fmt.Println("it is user type", v)
+		fmt.Println("it is data type", v)
 	default:
 		fmt.Println("nothing matches")
 

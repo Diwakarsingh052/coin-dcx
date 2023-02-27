@@ -30,7 +30,7 @@ func main() {
 		},
 	)
 
-	dsn := "host=localhost user=diwakar password=root dbname=postgres port=5432 sslmode=disable"
+	dsn := "host=localhost data=diwakar password=root dbname=postgres port=5432 sslmode=disable"
 	gDb, err = gorm.Open(postgres.Open(dsn), &gorm.Config{Logger: newLogger})
 	if err != nil {
 		panic(err)

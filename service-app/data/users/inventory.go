@@ -17,7 +17,7 @@ func (s *Service) CreateInventory(ctx context.Context, ni NewShirtInventory, use
 		DateUpdated: now,
 	}
 
-	//inserting the data in db for specific user
+	//inserting the data in db for specific data
 	const q = `INSERT INTO inventory
 		(user_id, item_name, quantity, date_created, date_updated)
 		VALUES ( $1, $2, $3, $4, $5)

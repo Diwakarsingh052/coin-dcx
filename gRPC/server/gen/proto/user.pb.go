@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: proto/user.proto
+// source: proto/data.proto
 
 package proto
 
@@ -98,7 +98,7 @@ type SignupRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	User *User `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	User *User `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
 }
 
 func (x *SignupRequest) Reset() {
@@ -835,7 +835,7 @@ var file_proto_user_proto_goTypes = []interface{}{
 	(*JwtResponse)(nil),           // 13: proto.JwtResponse
 }
 var file_proto_user_proto_depIdxs = []int32{
-	0,  // 0: proto.SignupRequest.user:type_name -> proto.User
+	0,  // 0: proto.SignupRequest.data:type_name -> proto.User
 	5,  // 1: proto.GetPostsResponse.posts:type_name -> proto.Post
 	5,  // 2: proto.CreatePostRequest.posts:type_name -> proto.Post
 	1,  // 3: proto.UserService.Signup:input_type -> proto.SignupRequest

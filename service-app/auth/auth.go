@@ -25,10 +25,10 @@ type Claims struct {
 	Roles []string `json:"roles"`
 }
 
-// HasRoles checks if the user has a valid role to access the endpoint
+// HasRoles checks if the data has a valid role to access the endpoint
 func (c Claims) HasRoles(requiredRoles ...string) bool {
 	for _, has := range c.Roles { // roles with the users
-		for _, want := range requiredRoles { // roles user required to access the endpoint
+		for _, want := range requiredRoles { // roles data required to access the endpoint
 			if has == want {
 				return true
 			}

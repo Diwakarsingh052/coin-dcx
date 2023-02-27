@@ -57,7 +57,7 @@ func main() {
 	}
 	for i := 1; i <= 15; i++ {
 		c.wg.Add(1)
-		go c.bookCab("user " + strconv.Itoa(i))
+		go c.bookCab("data " + strconv.Itoa(i))
 
 	}
 	for i := 1; i <= 15; i++ {

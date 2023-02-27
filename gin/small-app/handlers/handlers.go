@@ -8,9 +8,9 @@ import (
 	"strconv"
 )
 
-// /user?user_id=2
+// /data?user_id=2
 
-// GetUser is entry point for /user endpoint
+// GetUser is entry point for /data endpoint
 // think how would you handle the request when someone hit this endpoint
 
 func GetUserGin(c *gin.Context) {
@@ -28,14 +28,14 @@ func GetUserGin(c *gin.Context) {
 
 	}
 
-	//fetching the user with the userId provided
+	//fetching the data with the userId provided
 	u, err := user.FetchUser(userId)
 	if err != nil {
 
 		log.Println(err)
 		//aborting with json
 		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
-			"Message": "user id not found",
+			"Message": "data id not found",
 		})
 		return
 

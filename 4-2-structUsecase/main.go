@@ -1,7 +1,7 @@
 package main
 
 import (
-	"dxc-learn-go/projdemo/user"
+	"coin-dcx/4-2-structUsecase/user"
 	"log"
 	"os"
 )

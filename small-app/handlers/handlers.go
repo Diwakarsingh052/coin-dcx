@@ -8,9 +8,9 @@ import (
 	"strconv"
 )
 
-// /user?user_id=2
+// /data?user_id=2
 
-// GetUser is entry point for /user endpoint
+// GetUser is entry point for /data endpoint
 // think how would you handle the request when someone hit this endpoint
 func GetUser(w http.ResponseWriter, r *http.Request) {
 	// this line set your  ContentType as json
@@ -34,12 +34,12 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 		//return // don't forget the return
 	}
 
-	//fetching the user with the userId provided
+	//fetching the data with the userId provided
 	u, err := user.FetchUser(userId)
 	if err != nil {
 
 		log.Println(err)
-		appErr := map[string]string{"Message": "user id not found"}
+		appErr := map[string]string{"Message": "data id not found"}
 
 		w.WriteHeader(http.StatusBadRequest) // setting error status code
 		json.NewEncoder(w).Encode(appErr)    // converting map to json and sending back to the client using responseWritet

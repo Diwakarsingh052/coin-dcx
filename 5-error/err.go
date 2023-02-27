@@ -19,7 +19,7 @@ func main() {
 
 // prefix your err variables with Err word
 
-var ErrRecordNotFound = errors.New("not found user") //Error string should not be capitalized or end with punctuation mark
+var ErrRecordNotFound = errors.New("not found data") //Error string should not be capitalized or end with punctuation mark
 
 func FetchRecord(id int) (string, error) {
 	email, ok := user[id]

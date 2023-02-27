@@ -11,7 +11,7 @@ import (
 
 func (us *userService) GetPosts(req *pb.GetPostsRequest, stream pb.UserService_GetPostsServer) error {
 	id := req.GetUserId()
-	log.Println("GetPosts: ", "fetching all posts for user id ", id)
+	log.Println("GetPosts: ", "fetching all posts for data id ", id)
 	//write logic of fetching post from db
 
 	//assume these posts we are getting in batches
@@ -70,7 +70,7 @@ func (us *userService) GetPosts(req *pb.GetPostsRequest, stream pb.UserService_G
 		log.Println(err)
 		return err
 	}
-	log.Println("all posts are sent for user id", id)
+	log.Println("all posts are sent for data id", id)
 
 	return nil
 }
