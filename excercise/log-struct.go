@@ -1,22 +1,30 @@
 package main
 
+import (
+	"log"
+	"os"
+)
+
 func main() {
 	//create a struct that store connection to log
 	//create var of struct using new func
 	//write a method that log on terminal
+	l := NewLogging()
+	l.print("test data") // date + time + line number
+	//fmt.Println(string(debug.Stack()))
 
-	l.print() // date + time + line number
 }
 
-type logging struct {
+type Logging struct {
 	// connection to log.Logger
+	log *log.Logger
 }
 
-func NewLogging() {
-
+func NewLogging() *Logging {
+	l := log.New(os.Stdout, "sales: ", log.LstdFlags|log.Lshortfile)
+	return &Logging{log: l}
 }
 
-func (l logging) print() {
-
+func (l *Logging) print(data string) {
+	l.log.Println(data)
 }
-
