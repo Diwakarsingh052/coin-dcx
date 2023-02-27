@@ -1,7 +1,7 @@
 package userdb
 
 import (
-	"coin-dcx/excercise/data"
+	"coin-dcx/excercise/interface-2/data"
 	"context"
 	"database/sql"
 	"fmt"
@@ -11,8 +11,8 @@ type Postgres struct {
 	db *sql.DB
 }
 
-func NewPostgres(db *sql.DB) Postgres {
-	return Postgres{db: db}
+func NewPostgres(db *sql.DB) *Postgres {
+	return &Postgres{db: db}
 }
 
 func (p *Postgres) Create(ctx context.Context, usr data.User) error {
