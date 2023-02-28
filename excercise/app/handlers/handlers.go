@@ -9,7 +9,7 @@ import (
 
 // /user?user_id=2
 
-// GetUser is entry point for /data endpoint
+// GetUser is entry point for /user endpoint
 // think how would you handle the request when someone hit this endpoint
 func GetUser(w http.ResponseWriter, r *http.Request) {
 	// this line set your  ContentType as json
