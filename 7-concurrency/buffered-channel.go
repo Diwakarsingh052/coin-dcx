@@ -14,7 +14,7 @@ func main() {
 	ch := make(chan int, 2) //make(chan type,bufferSize)
 
 	wg.Add(1)
-	go func(c chan int) {
+	go func(c chan int) { // putting exact value in the loop condition is not the best idea
 		defer wg.Done()
 		for i := 1; i <= 2; i++ {
 			//fmt.Println(<-ch) // recv will take the value out of the buffer, and it will empty the space taken up by the value so we can push more new values

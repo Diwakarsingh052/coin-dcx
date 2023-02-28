@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	_ "github.com/lib/pq"
+	_ "github.com/jackc/pgx/v5/stdlib"
 	"log"
 	"time"
 )
@@ -16,7 +16,7 @@ const (
 	port     = 5432
 	user     = "diwakar"
 	password = "root"
-	dbname   = "users"
+	dbname   = "postgres"
 )
 
 type usr struct {
@@ -26,9 +26,9 @@ type usr struct {
 
 func main() {
 	var err error
-	psqlInfo := fmt.Sprintf("host=%s port=%d data=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
+	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
 
-	db, err = sql.Open("postgres", psqlInfo)
+	db, err = sql.Open("pgx", psqlInfo)
 	if err != nil {
 		panic(err)
 	}
