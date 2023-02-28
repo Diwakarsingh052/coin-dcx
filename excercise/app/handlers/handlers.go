@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-// /data?user_id=2
+// /user?user_id=2
 
 // GetUser is entry point for /data endpoint
 // think how would you handle the request when someone hit this endpoint
