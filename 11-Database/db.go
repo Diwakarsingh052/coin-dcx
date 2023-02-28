@@ -25,6 +25,7 @@ type usr struct {
 }
 
 func main() {
+
 	var err error
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
 
@@ -32,6 +33,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 	defer cancel()
 

@@ -8,6 +8,7 @@ func main() {
 	add := func(a, b int) {
 		fmt.Println(a + b)
 	}
+
 	sub := func(a, b int) {
 		fmt.Println(a - b)
 	}

@@ -15,4 +15,7 @@ func main() {
 	//fetch key value
 	db := os.Getenv("Database")
 	log.Println(db)
+
+	//https://github.com/spf13/viper
+	
 }

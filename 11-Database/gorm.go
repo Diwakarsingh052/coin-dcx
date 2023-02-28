@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	_ "github.com/lib/pq"
+
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -30,11 +30,12 @@ func main() {
 		},
 	)
 
-	dsn := "host=localhost data=diwakar password=root dbname=postgres port=5432 sslmode=disable"
+	dsn := "host=localhost user=diwakar password=root dbname=postgres port=5432 sslmode=disable"
 	gDb, err = gorm.Open(postgres.Open(dsn), &gorm.Config{Logger: newLogger})
 	if err != nil {
 		panic(err)
 	}
+
 	conn, err := gDb.DB()
 
 	if err != nil {
@@ -44,10 +45,10 @@ func main() {
 	defer conn.Close()
 
 	fmt.Println("connected")
-	CreateTable()
-	InsertData()
+	//CreateTable()
+	//InsertData()
 	SearchAll()
-	SearchWhere()
+	//SearchWhere()
 	//Delete()
 }
 
