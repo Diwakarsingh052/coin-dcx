@@ -22,9 +22,6 @@ func main() {
 	go sub(100, 90, c)
 	go calcAll(c)
 
-	// please create a new channel when we have a new series of task or different task than other go routines
-	//go workOnJson()
-
 	wg.Wait()
 
 }
