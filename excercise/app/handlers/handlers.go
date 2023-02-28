@@ -1,10 +1,10 @@
 package handlers
 
 import (
+	"app/data/user"
 	"encoding/json"
 	"log"
 	"net/http"
-	"small-app/data/user"
 )
 
 // /data?user_id=2
@@ -18,7 +18,7 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	//fetching the variable from query
 	userIdString := r.URL.Query().Get("user_id")
 
-	//converting it to make sure it is a valid uint64
+	//converting it to make sure it is a valid uint64 // strconv.parseuint
 
 	if err != nil {
 		log.Println(err)
