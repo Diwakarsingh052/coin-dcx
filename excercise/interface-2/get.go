@@ -36,9 +36,6 @@ func doGetRequest(urls []string) {
 		defer wg.Done()
 		for _, v := range urls {
 
-			// keeping track of get requests that are going to start in the next line
-			//wgGet.Add(1)
-
 			//fanning out go routines // one task = one goroutine
 
 			go func(url string) {
