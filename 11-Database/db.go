@@ -41,7 +41,7 @@ func main() {
 	}
 	fmt.Println("connected")
 	//Insert()
-	//Insert2(ctx)
+	Insert2(ctx)
 	//Update(ctx)
 	//delete(ctx)
 	//querySingleRecords(ctx)
