@@ -1,7 +1,7 @@
 package userdb
 
 import (
-	"coin-dcx/excercise/interface-2/data"
+	"coin-dcx/exercise/interface-2/data"
 	"context"
 	"database/sql"
 	"fmt"
@@ -23,7 +23,7 @@ func (p *Conn) Update(ctx context.Context, usr data.User) error {
 	fmt.Println("updating in postgres", usr)
 	return nil
 }
-func (p *Conn) Delete(ctx context.Context, usr data.User) error {
+func (p *Conn) Delete(usr data.User) error {
 	fmt.Println("deleting in postgres", usr)
 	return nil
 }

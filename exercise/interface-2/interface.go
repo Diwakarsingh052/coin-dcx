@@ -2,7 +2,7 @@ package main
 
 func main() {
 	// call Create method of postgres using Storer interface
-	// newPostgres
+	// newConn
 	//newStore
 	//call create method
 }

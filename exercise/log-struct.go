@@ -17,14 +17,14 @@ func main() {
 
 type Logging struct {
 	// connection to log.Logger
-	log *log.Logger
+
 }
 
 func NewLogging() *Logging {
 	l := log.New(os.Stdout, "sales: ", log.LstdFlags|log.Lshortfile)
-	return &Logging{log: l}
+	return &Logging{}
 }
 
 func (l *Logging) print(data string) {
-	l.log.Println(data)
+	//print data
 }
