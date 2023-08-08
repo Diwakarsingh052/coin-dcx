@@ -21,7 +21,7 @@ type Logging struct {
 }
 
 func NewLogging() *Logging {
-	l := log.New(os.Stdout, "sales: ", log.LstdFlags|log.Lshortfile)
+	l := log.New(os.Stdout, "sales: ", log.LstdFlags)
 	return &Logging{}
 }
 
