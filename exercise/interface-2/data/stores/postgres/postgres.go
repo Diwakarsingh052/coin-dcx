@@ -1,4 +1,4 @@
-package userdb
+package postgres
 
 import (
 	"coin-dcx/exercise/interface-2/data"

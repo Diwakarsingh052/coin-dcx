@@ -1,8 +1,9 @@
 package main
 
 func main() {
-	// call Create method of postgres using Storer interface
-	// newConn
-	//newStore
+	//final outcome:- call the Create method of Conn struct using Storer interface
+
+	// call newConn
+	// call newStore
 	//call create method
 }
