@@ -47,7 +47,7 @@ func main() {
 	//Update(ctx)
 	//delete(ctx)
 	//querySingleRecords(ctx)
-	QueryMultipleRecords(ctx)
+	//QueryMultipleRecords(ctx)
 }
 
 func Insert() {
